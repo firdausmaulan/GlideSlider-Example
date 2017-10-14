@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
             textSliderView
                     .description(listName.get(i))
                     .image(listUrl.get(i))
-                    .setBitmapTransformation(new CenterCrop())
+                    .setCenterCrop(true)
                     .setOnSliderClickListener(this);
             //add your extra information
             textSliderView.bundle(new Bundle());
