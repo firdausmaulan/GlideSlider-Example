@@ -4,17 +4,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.glide.slider.library.Animations.DescriptionAnimation;
 import com.glide.slider.library.SliderLayout;
 import com.glide.slider.library.SliderTypes.BaseSliderView;
-import com.glide.slider.library.SliderTypes.TextSliderView;
+import com.glide.slider.library.SliderTypes.DefaultSliderView;
 import com.glide.slider.library.Tricks.ViewPagerEx;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
+public class MainActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener,
+        ViewPagerEx.OnPageChangeListener {
 
     private SliderLayout mDemoSlider;
 
@@ -22,11 +22,10 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mDemoSlider = (SliderLayout) findViewById(R.id.slider);
+        mDemoSlider = findViewById(R.id.slider);
 
-        HashMap<String, String> url_maps = new HashMap<String, String>();
-        ArrayList<String> listUrl = new ArrayList<String>();
-        ArrayList<String> listName = new ArrayList<String>();
+        ArrayList<String> listUrl = new ArrayList<>();
+        ArrayList<String> listName = new ArrayList<>();
 
         listUrl.add("https://www.revive-adserver.com/media/GitHub.jpg");
         listName.add("JPG - Github");
@@ -40,20 +39,29 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         //listUrl.add("https://upload.wikimedia.org/wikipedia/commons/d/db/Android_robot_2014.svg");
         //listName.add("SVG - Android");
 
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions
+                .centerCrop()
+                //.diskCacheStrategy(DiskCacheStrategy.NONE)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.placeholder);
+
         for (int i = 0; i < listUrl.size(); i++) {
-            TextSliderView textSliderView = new TextSliderView(this);
+            DefaultSliderView sliderView = new DefaultSliderView(this);
             // initialize a SliderLayout
-            textSliderView
+            sliderView
                     .description(listName.get(i))
                     .image(listUrl.get(i))
-                    .setBitmapTransformation(new CenterCrop())
+                    .setRequestOption(requestOptions)
                     .setOnSliderClickListener(this);
             //add your extra information
-            textSliderView.bundle(new Bundle());
-            textSliderView.getBundle().putString("extra", listName.get(i));
-            mDemoSlider.addSlider(textSliderView);
+            sliderView.bundle(new Bundle());
+            sliderView.getBundle().putString("extra", listName.get(i));
+            mDemoSlider.addSlider(sliderView);
         }
-        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+        // set Slider Transition
+        // mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
         mDemoSlider.setDuration(4000);
