@@ -8,7 +8,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.glide.slider.library.Animations.DescriptionAnimation;
 import com.glide.slider.library.SliderLayout;
 import com.glide.slider.library.SliderTypes.BaseSliderView;
-import com.glide.slider.library.SliderTypes.TextSliderView;
+import com.glide.slider.library.SliderTypes.DefaultSliderView;
 import com.glide.slider.library.Tricks.ViewPagerEx;
 
 import java.util.ArrayList;
@@ -41,17 +41,17 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         //listName.add("SVG - Android");
 
         for (int i = 0; i < listUrl.size(); i++) {
-            TextSliderView textSliderView = new TextSliderView(this);
+            DefaultSliderView sliderView = new DefaultSliderView(this);
             // initialize a SliderLayout
-            textSliderView
+            sliderView
                     .description(listName.get(i))
                     .image(listUrl.get(i))
                     .setBitmapTransformation(new CenterCrop())
                     .setOnSliderClickListener(this);
             //add your extra information
-            textSliderView.bundle(new Bundle());
-            textSliderView.getBundle().putString("extra", listName.get(i));
-            mDemoSlider.addSlider(textSliderView);
+            sliderView.bundle(new Bundle());
+            sliderView.getBundle().putString("extra", listName.get(i));
+            mDemoSlider.addSlider(sliderView);
         }
         mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
