@@ -38,15 +38,18 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         listUrl.add("http://static.tumblr.com/7650edd3fb8f7f2287d79a67b5fec211/3mg2skq/3bdn278j2/tumblr_static_idk_what.gif");
         listName.add("GIF - Disney");
 
-        //listUrl.add("https://upload.wikimedia.org/wikipedia/commons/d/db/Android_robot_2014.svg");
-        //listName.add("SVG - Android");
+        listUrl.add("http://www.gstatic.com/webp/gallery/1.webp");
+        listName.add("WEBP - Mountain");
+
+        listUrl.add("https://www.clicktorelease.com/tmp/google-svg/image.svg");
+        listName.add("SVG - Google");
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions
-                .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.placeholder);
+                .centerCrop();
+                //.diskCacheStrategy(DiskCacheStrategy.NONE)
+                //.placeholder(R.drawable.placeholder)
+                //.error(R.drawable.placeholder);
 
         for (int i = 0; i < listUrl.size(); i++) {
             TextSliderView sliderView = new TextSliderView(this);
@@ -57,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                     .image(listUrl.get(i))
                     .description(listName.get(i))
                     .setRequestOption(requestOptions)
-                    .setBackgroundColor(Color.BLACK)
-                    .setProgressBarVisible(false)
+                    .setBackgroundColor(Color.WHITE)
+                    .setProgressBarVisible(true)
                     .setOnSliderClickListener(this);
 
             //add your extra information
