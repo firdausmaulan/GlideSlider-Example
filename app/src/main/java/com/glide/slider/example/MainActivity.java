@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.glide.slider.library.Animations.DescriptionAnimation;
 import com.glide.slider.library.SliderLayout;
@@ -41,12 +40,8 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         listUrl.add("http://www.gstatic.com/webp/gallery/1.webp");
         listName.add("WEBP - Mountain");
 
-        listUrl.add("https://www.clicktorelease.com/tmp/google-svg/image.svg");
-        listName.add("SVG - Google");
-
         RequestOptions requestOptions = new RequestOptions();
-        requestOptions
-                .centerCrop();
+        requestOptions.centerCrop();
                 //.diskCacheStrategy(DiskCacheStrategy.NONE)
                 //.placeholder(R.drawable.placeholder)
                 //.error(R.drawable.placeholder);

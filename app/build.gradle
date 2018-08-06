@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "$support_version"
     defaultConfig {
         applicationId "com.glide.slider.example"
         minSdkVersion 14
