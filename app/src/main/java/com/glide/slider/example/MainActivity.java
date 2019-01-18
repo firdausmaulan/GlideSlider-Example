@@ -1,6 +1,5 @@
 package com.glide.slider.example;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                     .image(listUrl.get(i))
                     .description(listName.get(i))
                     .setRequestOption(requestOptions)
-                    .setBackgroundColor(Color.WHITE)
                     .setProgressBarVisible(true)
                     .setOnSliderClickListener(this);
 
