@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.centerCrop();
-                //.diskCacheStrategy(DiskCacheStrategy.NONE)
-                //.placeholder(R.drawable.placeholder)
-                //.error(R.drawable.placeholder);
+        //.diskCacheStrategy(DiskCacheStrategy.NONE)
+        //.placeholder(R.drawable.placeholder)
+        //.error(R.drawable.placeholder);
 
         for (int i = 0; i < listUrl.size(); i++) {
             TextSliderView sliderView = new TextSliderView(this);
@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
         mDemoSlider.setDuration(4000);
         mDemoSlider.addOnPageChangeListener(this);
+        mDemoSlider.stopCyclingWhenTouch(false);
     }
 
     @Override
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 
     @Override
     public void onSliderClick(BaseSliderView slider) {
-        Toast.makeText(this, slider.getBundle().get("extra") + "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, slider.getBundle().getString("extra") + "", Toast.LENGTH_SHORT).show();
     }
 
     @Override
