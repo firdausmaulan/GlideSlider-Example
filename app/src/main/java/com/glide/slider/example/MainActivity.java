@@ -1,15 +1,15 @@
 package com.glide.slider.example;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.bumptech.glide.request.RequestOptions;
-import com.glide.slider.library.Animations.DescriptionAnimation;
+import com.glide.slider.library.animations.DescriptionAnimation;
 import com.glide.slider.library.SliderLayout;
-import com.glide.slider.library.SliderTypes.BaseSliderView;
-import com.glide.slider.library.SliderTypes.TextSliderView;
-import com.glide.slider.library.Tricks.ViewPagerEx;
+import com.glide.slider.library.slidertypes.BaseSliderView;
+import com.glide.slider.library.slidertypes.TextSliderView;
+import com.glide.slider.library.tricks.ViewPagerEx;
 
 import java.util.ArrayList;
 

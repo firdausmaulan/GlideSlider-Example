@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.glide.slider.example"
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -21,9 +21,8 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'library')
     //implementation project(':library')
-    //noinspection GradleCompatible
-    implementation "com.android.support:appcompat-v7:$support_version"
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
-    implementation "com.github.firdausmaulan:GlideSlider:$glide_slider_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "com.github.bumptech.glide:glide:4.9.0"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.9.0"
+    implementation "com.github.firdausmaulan:GlideSlider:1.5.1"
 }
