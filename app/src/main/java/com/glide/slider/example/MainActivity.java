@@ -28,16 +28,13 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         ArrayList<String> listName = new ArrayList<>();
 
         listUrl.add("https://www.revive-adserver.com/media/GitHub.jpg");
-        listName.add("JPG - Github");
+        listName.add("JPG Format");
 
-        listUrl.add("https://tctechcrunch2011.files.wordpress.com/2017/02/android-studio-logo.png");
-        listName.add("PNG - Android Studio");
+        listUrl.add("https://e7.pngegg.com/pngimages/519/64/png-clipart-black-laptop-computer-illustration-computer-programming-web-development-computer-software-programming-language-theme-coder-electronics-gadget.png");
+        listName.add("PNG Format");
 
-        listUrl.add("http://static.tumblr.com/7650edd3fb8f7f2287d79a67b5fec211/3mg2skq/3bdn278j2/tumblr_static_idk_what.gif");
-        listName.add("GIF - Disney");
-
-        listUrl.add("http://www.gstatic.com/webp/gallery/1.webp");
-        listName.add("WEBP - Mountain");
+        listUrl.add("https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif");
+        listName.add("GIF Format");
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.centerCrop();
